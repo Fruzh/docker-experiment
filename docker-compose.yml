@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  laravel-app:
+    build: .
+    container_name: laravel-apache
+    volumes:
+      - .:/var/www/html
+    ports:
+      - "80:80"
+    depends_on:
+      - mysql
+    restart: unless-stopped
+    networks:
+      - laravel-net
+
+  mysql:
+    image: mysql:8.0
+    container_name: laravel-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: nama_database
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      - laravel-net
+
+networks:
+  laravel-net:
+
+volumes:
+  mysql-data:
