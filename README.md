@@ -21,15 +21,10 @@ sudo systemctl enable docker
 ### 1. Clone Repository
 Pergi ke directory root Laravel, kemudian clone repository ini:
 ```bash
-git clone https://github.com/Fruzh/docker-experiment.git
+git clone https://github.com/Fruzh/docker-experiment.git .
 ```
 
-### 2. Masuk ke Directory Project
-```bash
-cd docker-experiment
-```
-
-### 3. Konfigurasi Environment
+### 2. Konfigurasi Environment
 Edit file `.env` sesuai dengan konfigurasi di `docker-compose.yml`:
 
 #### Contoh `.env`:
@@ -74,7 +69,7 @@ DB_PASSWORD=password_baru      # Sama dengan docker-compose.yml
 
 **Penting**: Kedua file harus memiliki nilai yang sama untuk database dan password!
 
-### 4. Jalankan Container
+### 3. Jalankan Container
 ```bash
 # Untuk pertama kali atau jika ada perubahan Dockerfile
 docker-compose up -d --build
